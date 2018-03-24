@@ -8,11 +8,18 @@ import java.util.List;
 
 public class Whois {
 
+    public static void main(String[] args) {
+       // whois();
+        List list = getServerList();
+        System.out.println(list);
+    }
+
     public static List<String> getServerList() {
         List<String> list = new ArrayList<>();
 
         try (
-                BufferedReader br = new BufferedReader(new FileReader("/home/michael/WhoisServers.txt"));
+                BufferedReader br = new BufferedReader(new FileReader("./../../../WhoisServers.txt"));
+                // BufferedReader br = new BufferedReader(new FileReader("/home/michael/WhoisServers.txt"));
         )
         {
             String s = null;
