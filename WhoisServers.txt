@@ -48,6 +48,7 @@ cn.com whois.centralnic.com
 co whois.nic.co
 co.nl whois.co.nl
 com whois.verisign-grs.com
+com whois.iana.org
 coop whois.nic.coop
 cx whois.nic.cx
 cy whois.ripe.net
