@@ -67,10 +67,13 @@ public class Whois {
     /**
      * Whois query
      */
-    public static void whois() {
-        String domain = "mikeyjay.com";
+    public static String whois(String domain) {
+        domain = "mikeyjay.com";
+        //String hostName = "whois.verisign-grs.com";
         String hostName = "whois.verisign-grs.com";
         int port = 43;
+        StringBuilder result = new StringBuilder();
+
 
         try (
                 Socket echoSocket = new Socket(hostName, port);
@@ -88,9 +91,11 @@ public class Whois {
             out.println(domain);
             String s = null;
             while ((s = in.readLine()) != null) {
-                System.out.println(s);
+                result.append(s);
+               // System.out.println(s);
             }
         }
         catch (Exception e) {}
+        return result.toString();
     }
 }
