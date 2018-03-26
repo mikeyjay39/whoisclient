@@ -27,7 +27,7 @@ public class Whois {
      * Imports Whois servers from a txt file
      * @return
      */
-    public static List<String> getServerList() {
+    static List<String> getServerList() {
         List<String> list = new ArrayList<>();
 
         try (
@@ -52,7 +52,7 @@ public class Whois {
      * @param list
      * @return
      */
-    public static Map<String, ArrayList<String>> buildMap(List<String> list) {
+    private static Map<String, ArrayList<String>> buildMap(List<String> list) {
         Map<String, ArrayList<String>> map = list.stream()
                 .collect(Collectors.toMap(
                         ((String s) -> s.split(" ")[0]),
@@ -77,7 +77,7 @@ public class Whois {
      * @param hostName
      * @return
      */
-    public static String whoisQuery(String domain, String hostName) {
+    private static String whoisQuery(String domain, String hostName) {
         int port = 43;
         StringBuilder result = new StringBuilder();
             try (
@@ -87,9 +87,9 @@ public class Whois {
                     BufferedReader in =
                             new BufferedReader(
                                     new InputStreamReader(echoSocket.getInputStream()));
-                    BufferedReader stdIn =
+                   /* BufferedReader stdIn =
                             new BufferedReader(
-                                    new InputStreamReader(System.in))
+                                    new InputStreamReader(System.in))*/
 
 
             ){
@@ -136,7 +136,7 @@ public class Whois {
      * @param domain
      * @return
      */
-    public static String getTLD(String domain) {
+    static String getTLD(String domain) {
         return domain.replaceFirst("\\w*\\.", "");
     }
 
@@ -145,7 +145,7 @@ public class Whois {
      * @param tld
      * @return
      */
-    public static List<String> getWhoisServers(String tld) {
+    static List<String> getWhoisServers(String tld) {
         List list = getServerList();
         Map<String, List<String>> map = buildMap(list);
         return map.get(tld);

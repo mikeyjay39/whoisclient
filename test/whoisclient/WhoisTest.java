@@ -1,4 +1,4 @@
-package whois.test;
+package whoisclient;
 
 import org.junit.*;
 import java.util.ArrayList;
@@ -27,9 +27,9 @@ public class WhoisTest {
         Assert.assertNotEquals("", result);
     }
 
-    /**
-     * Tests backup whois server for .com TLDs
-     */
+
+    //Tests backup whois server for .com TLDs
+
     @Test
     public void testComLookup2() {
         result = whois(com, "whois.iana.org");
